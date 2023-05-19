@@ -1,14 +1,16 @@
 const router = require("express").Router();
-const { Blog, User } = require("../../models");
+const { Post, User, Comment } = require("../../models");
 
 // GET all drivers
 router.get("/", async (req, res) => {
   try {
-    const blogData = await Blog.findAll({
-      include: [{ model: User }],
+    const postData = await Post.findAll({
+      // include: [{ model: User }],
     });
-    res.status(200).json(blogData);
+    res.status(200).json(postData);
+    console.log(postData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
+module.exports = router;

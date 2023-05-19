@@ -1,0 +1,17 @@
+[
+  {
+    "postTitle": "Today is monday",
+    "postContent": "Start a new day with new hope",
+    "user_id": 1
+  },
+  {
+    "postTitle": "My white cat",
+    "postContent": "Pets are vey interesting",
+    "user_id": 2
+  },
+  {
+    "postTitle": "My first at school",
+    "postContent": "Start a new day with new hope",
+    "user_id": 3
+  }
+]
