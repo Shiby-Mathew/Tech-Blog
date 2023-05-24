@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
 
     // req.session.save(() => {
     //   req.session.loggedIn = true; });
-    // console.log("into database");
+
     res.status(200).json(dbUserData);
   } catch (err) {
     console.log(err);
@@ -30,7 +30,7 @@ router.post("/login", async (req, res) => {
         username: req.body.username,
       },
     });
-    // console.log(dbUserData[0]);
+    console.log(dbUserData);
 
     if (!dbUserData) {
       res
