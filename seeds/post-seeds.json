@@ -1,17 +1,17 @@
 [
   {
-    "postTitle": "Today is monday",
-    "postContent": "Start a new day with new hope",
+    "post_title": "Today is monday",
+    "post_content": "Start a new day with new hope",
     "user_id": 1
   },
   {
-    "postTitle": "My white cat",
-    "postContent": "Pets are vey interesting",
+    "post_title": "My white cat",
+    "post_content": "Pets are vey interesting",
     "user_id": 2
   },
   {
-    "postTitle": "My first at school",
-    "postContent": "Very first day ,happy to explore",
+    "post_title": "My first at school",
+    "post_content": "Very first day ,happy to explore",
     "user_id": 3
   }
 ]

@@ -1,16 +1,25 @@
 const router = require("express").Router();
-const { Post, User, Comment } = require("../../models");
+const { Post } = require("../../models");
 
-// GET all drivers
-router.get("/", async (req, res) => {
+// Add a new post
+router.post("/", async (req, res) => {
   try {
-    const postData = await Post.findAll({
-      // include: [{ model: User }],
+    const blogPostData = await Post.create({
+      post_title: req.body.blogTitle,
+      post_content: req.body.blogPost,
+      user_id: req.body.user_id,
     });
-    res.status(200).json(postData);
-    console.log(postData);
+    // console.log(blogPostData);
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      res.status(200).json(blogPostData);
+    });
+
+    // res.redirect("/");
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
+
 module.exports = router;

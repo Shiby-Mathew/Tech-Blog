@@ -28,7 +28,7 @@ h2 {
 
 header {
   padding: 10px;
-  text-align: center;
+  text-align: left;
   background: var(--dark-blue);
   color: var(--white);
 }

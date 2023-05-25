@@ -11,17 +11,17 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    postTitle: {
+    post_title: {
       type: DataTypes.STRING(25),
       allowNull: false,
       unique: true,
     },
-    postContent: {
+    post_content: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
     },
-    dateCreated: {
+    date_created: {
       type: DataTypes.DATEONLY,
       allowNull: false,
       defaultValue: DataTypes.NOW,

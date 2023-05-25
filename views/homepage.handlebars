@@ -1,9 +1,11 @@
 {{#each posts as |post|}}
   <div class="blog-card">
     <section class="card">
-      <header>{{post.postTitle}}</header>
+      {{!-- {{#if loggedIn}} --}}
+      <header>{{post.post_title}} Created Date: {{post.date_created}}</header>
+      {{!-- {{/if}} --}}
       <div class="card-item">
-        <p>{{post.postContent}}</p>
+        <p>{{post.post_content}}</p>
       </div>
     </section>
   </div>
