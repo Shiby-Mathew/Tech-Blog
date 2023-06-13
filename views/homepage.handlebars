@@ -2,7 +2,10 @@
   <div class="blog-card">
     <section class="card">
       {{!-- {{#if loggedIn}} --}}
-      <header>{{post.post_title}} Created Date: {{post.date_created}}</header>
+      <header>{{post.post_title}}
+        <span style="float:right">
+          Created on,
+          {{post.date_created}}</span></header>
       {{!-- {{/if}} --}}
       <div class="card-item">
         <p>{{post.post_content}}</p>

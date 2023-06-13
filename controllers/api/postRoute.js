@@ -10,10 +10,11 @@ router.post("/", async (req, res) => {
       user_id: req.body.user_id,
     });
     // console.log(blogPostData);
-    req.session.save(() => {
-      req.session.loggedIn = true;
-      res.status(200).json(blogPostData);
-    });
+    // req.session.save(() => {
+    //   req.session.loggedIn = true;
+      
+    // });
+    res.status(200).json(blogPostData);
 
     // res.redirect("/");
   } catch (err) {

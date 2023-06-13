@@ -19,11 +19,11 @@
     <nav>
       <a href="/">Home</a>
       <a href="/dashboard">Dasboard</a>
-      {{!-- {{#if loggedIn}} --}}
-      {{! <button id="logout">Logout</button> }}
-      {{!-- {{else}} --}}
+      {{#if loggedIn}} 
+      <button id="logout">Logout</button> 
+      {{else}}
       <a href="/login">LogIn</a>
-      {{!-- {{/if}} --}}
+      {{/if}}
     </nav>
 
     <main>
@@ -36,9 +36,9 @@
         <p>@techblog tech</p>
       </h4>
     </footer>
-    {{!-- {{#if loggedIn}} --}}
+    {{#if loggedIn}}
     <script src="/js/logout.js"></script>
-    {{!-- {{/if}} --}}
+     {{/if}}
 
     <script src="/js/login.js"></script>
 

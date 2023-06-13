@@ -15,7 +15,7 @@ const dashboardFormHandler = async (event) => {
 
     if (response.ok) {
       document.location.replace("/");
-      //alert("post added");
+      alert("post added");
     } else {
       alert("Failed to added new post.");
     }

@@ -11,31 +11,32 @@ router.get("/", async (req, res) => {
 
     const posts = postData.map((post) => post.get({ plain: true }));
     //console.log(posts);
-    res.render("homepage", { posts });
+    res.render("homepage", {
+      posts,
+      loggedIn: req.session.loggedIn,
+    });
+    //req.session.loggedIn
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 router.get("/login", async (req, res) => {
-  // if (req.session.loggedIn) {
-  //   res.redirect("/");
-  //   return;
-  // }
-  //verification
-  //if the user logged in direct then to homepage
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
   res.render("login");
 });
 
 router.get("/dashboard", async (req, res) => {
-  //verification
-  //if the user logged in direct then to homepage
-  // if (req.session.loggedIn) {
-  res.render("dashboard");
+  if (req.session.loggedIn) {
+    res.render("dashboard");
 
-  return;
-  // }
-  // res.redirect("/");
+    return;
+  }
+  //res.redirect("/");
+  res.render("login");
 });
 
 module.exports = router;
