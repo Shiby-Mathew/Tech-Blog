@@ -12,10 +12,10 @@ router.post("/", async (req, res) => {
       password: req.body.password,
     });
 
-    req.session.save(() => {
-      req.session.loggedIn = true;
-      res.status(200).json(dbUserData);
-    });
+    // req.session.save(() => {
+    //   req.session.loggedIn = true;
+    res.status(200).json(dbUserData);
+    //});
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -49,9 +49,9 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-    req.session.save(() => {
-      req.session.loggedIn = true;
-    });
+    // req.session.save(() => {
+    //   req.session.loggedIn = true;
+    // });
 
     res
       .status(200)
@@ -64,13 +64,13 @@ router.post("/login", async (req, res) => {
 
 // Logout
 router.post("/logout", (req, res) => {
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
+  // if (req.session.loggedIn) {
+  req.session.destroy(() => {
+    res.status(204).end();
+  });
+  // } else {
+  //   res.status(404).end();
+  // }
 });
 
 module.exports = router;

@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
 
     const posts = postData.map((post) => post.get({ plain: true }));
     //console.log(posts);
-    res.render("homepage", { posts, loggedIn: req.session.loggedIn });
+    res.render("homepage", { posts });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -27,15 +27,15 @@ router.get("/login", async (req, res) => {
   res.render("login");
 });
 
-router.get("/dashboard", withAuth, async (req, res) => {
+router.get("/dashboard", async (req, res) => {
   //verification
   //if the user logged in direct then to homepage
-  if (req.session.loggedIn) {
-    res.render("dashboard");
+  // if (req.session.loggedIn) {
+  res.render("dashboard");
 
-    return;
-  }
-  res.redirect("/");
+  return;
+  // }
+  // res.redirect("/");
 });
 
 module.exports = router;
