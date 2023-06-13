@@ -21,6 +21,26 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Use withAuth middleware to prevent access to route
+router.get("/dashboard", withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ["password"] },
+      include: [{ model: Post }],
+    });
+
+    const user = userData.get({ plain: true });
+    console.log(user);
+    res.render("dashboard", {
+      user,
+      loggedIn: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get("/login", async (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");
@@ -29,14 +49,13 @@ router.get("/login", async (req, res) => {
   res.render("login");
 });
 
-router.get("/dashboard", async (req, res) => {
-  if (req.session.loggedIn) {
-    res.render("dashboard");
+// router.get("/dashboard", async (req, res) => {
+//   if (req.session.loggedIn) {
+//     res.render("dashboard");
 
-    return;
-  }
-  //res.redirect("/");
-  res.render("login");
-});
+//     return;
+//   } //else res.redirect("/");
+//   res.render("login");
+// });
 
 module.exports = router;

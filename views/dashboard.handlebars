@@ -1,3 +1,8 @@
+
+
+ {{!-- <div>
+    <h2>Welcome, {{user.username}}!</h2>
+  </div> --}}
 <div class="dashbord-card">
   <form class="form post-form">
     <div class="form-group">
@@ -18,21 +23,33 @@
   </form>
 </div>
 
+{{!-- 
+<div >
+  <div>
+    <h2>Welcome, {{user.username}}!</h2>
+  </div>
+</div> --}}
 
 
-  <div class="col-md-6 project-list">
-    <h3>Current blogs:</h3>
- 
-    <div class="row mb-2">
+
+{{#if user.posts.length}}
+
+  <div class="col-md-6 post-list">
+    <h3>Current blogs of:  {{user.username}}</h3>
+
+    {{#each user.posts as |post|}}
+    <div class="row mb-2 ">
       <div class="col-md-8">
-        <h4><a href="/blog/blogid">blog post</a></h4>
+        <h4><a href="/blog/{{post.id}}">{{ post.post_title}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="blog-id">DELETE</button>
-        <button class="btn btn-sm btn-primary" data-id="blog-id">EDIT</button>
+        <button class="btn btn-sm btn-danger" name="delete" data-id="{{post.id}}">DELETE</button>
+        <button class="btn btn-sm btn-primary" name="edit"  data-id="{{post.id}}">EDIT</button>
     </div>
     
   </div>
+  {{/each}}
+  {{/if}}
 
 </div>
 <script src="/js/dashboard.js"></script>

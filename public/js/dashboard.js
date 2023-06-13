@@ -21,7 +21,25 @@ const dashboardFormHandler = async (event) => {
     }
   }
 };
+const deleteButtonHandler = async (event) => {
+  alert("clicked");
+  if (event.target.hasAttribute("name")) {
+    const value = event.target.getAttribute("name");
+    alert(value);
+  }
+  
+  
+  // if (event.target.hasAttribute("data-id")) {
+  //   const id = event.target.getAttribute("data-id");
+  //   const value = event.target.getAttribute("name");
+  //   alert(id, value);
+  // }
+};
 
 document
   .querySelector(".post-form")
   .addEventListener("submit", dashboardFormHandler);
+
+document
+  .querySelector(".post-list")
+  .addEventListener("click", deleteButtonHandler);
